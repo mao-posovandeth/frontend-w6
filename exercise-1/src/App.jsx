@@ -1,26 +1,26 @@
 import React from "react";
-
-export const userData = {
-  firstName: "Ronan",
-  lastName: "Ogor",
-  title: "PN React JS Killer",
-};
-
-export function User() {
-  return (
-    <div id="user" data-testid="user">
-      <h2>{userData.firstName} {userData.lastName}</h2>
-      <p>{userData.title}</p>
-    </div>
-  );
-}
+import Header from "./components/Header";
+import Scores from "./components/Scores";
+import {
+  JAVA_RESULTS,
+  PYTHON_RESULTS,
+  HTML_RESULTS,
+  ENGLISH_RESULTS,
+} from "./data";
 
 function App() {
+  const batchName = "";
+
   return (
-    <div id="app">
-      <h1>WELCOME !!</h1>
-      <p>PNV students are you ready to React Course ? You got this 💪</p>
-      <User />
+    <div className="app-root">
+      <Header batchName={batchName} />
+
+      <main className="scores-container">
+        <Scores courseName="HTML" courseResults={HTML_RESULTS} />
+        <Scores courseName="Java" courseResults={JAVA_RESULTS} />
+        <Scores courseName="Python" courseResults={PYTHON_RESULTS} />
+        <Scores courseName="English" courseResults={ENGLISH_RESULTS} />
+      </main>
     </div>
   );
 }

@@ -1,4 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Lato:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap");
+
+:root {
+  --main-color: #00bdef;
+  --secondary-color: #f89738;
+  --grey-color: #c0c0c0;
+  --white-color: #ffffff;
+}
 
 * {
   box-sizing: border-box;
@@ -6,66 +13,129 @@
 
 body {
   margin: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: "Quicksand", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(#e6e3eb, #d2ced7);
-  color: #e5d9f1;
+  background: #474e4b;
+  color: #e1eeeb;
   min-height: 100vh;
 }
 
-#app {
-  margin: 2rem auto;
-  padding: 1rem;
-  max-width: 40rem;
+/*  ----------  HEADDER --------------------- */
+
+#header {
   text-align: center;
-  border-radius: 6px;
-  background: linear-gradient(#1f1d25, #17131c);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  margin: 3rem auto;
 }
 
-h1 {
-  letter-spacing: 0.15rem;
-  font-family: "Lato", sans-serif;
-  text-transform: uppercase;
-  margin-bottom: 2.5rem;
+#header img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: contain;
+  background-color: transparent;
 }
 
-#user {
+#header h1 {
+  font-size: 1.5rem;
+}
+
+/*  ----------  SCORES CONTAINER --------------------- */
+
+.scores-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+@media (min-width: 600px) {
+  .scores-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 912px) {
+  .scores-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .scores-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .scores-container {
+    grid-template-columns: repeat(4, 1fr);
+
+    max-width: 1100px;
+    margin: auto;
+  }
+}
+
+/*  ----------  SCORES CARDS --------------------- */
+
+.scores {
+  border: 1px solid var(--main-color);
+  border-radius: 15px;
+  margin: 1rem auto;
+  padding: 0.3rem;
+}
+
+.scores h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--white-color);
+}
+
+.scores table {
+  table-layout: fixed;
+  border-spacing: 0.5rem;
+  text-align: right;
+}
+
+.scores thead {
+  font-size: 1rem;
+  color: var(--white-color);
+}
+
+.scores tbody {
+  font-size: 1rem;
+  color: var(--grey-color);
+}
+
+.warning {
+  color: var(--secondary-color);
+}
+
+/* Statistics panel inside a score card */
+.scores .stats {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 2rem auto;
-  padding: 1rem;
+  justify-content: space-around;
+  gap: 1rem;
+  margin: 1rem;
+  background: var(--white-color);
+  color: #222;
   border-radius: 8px;
-  background: linear-gradient(#faca71, #fae571);
-  color: #1f1d25;
-  max-width: 20rem;
-  animation: pulse 2s infinite;
+  padding: 0.5rem 0.75rem;
+  align-items: center;
 }
 
-#user h2 {
-  text-transform: uppercase;
-  margin: 0.25rem 0;
-  font-size: 1.15rem;
-  font-weight: normal;
+.scores .stat {
+  text-align: center;
+  flex: 1;
 }
 
-#user p {
-  margin: 0;
-  font-size: 0.9rem;
-  font-weight: bold;
+.scores .stat-label {
+  font-size: 0.65rem;
+  color: #7a7a7a;
   text-transform: uppercase;
 }
 
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(250, 229, 113, 0.7);
-  }
-  50% {
-    box-shadow: 0 0 0 10px rgba(250, 229, 113, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(250, 229, 113, 0);
-  }
+.scores .stat-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #222;
 }
